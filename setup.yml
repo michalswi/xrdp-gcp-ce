@@ -1,0 +1,9 @@
+---
+- name: Configure XRDP on GCP Compute Engine (ubuntu VM)
+  hosts: master
+  become: yes
+  vars:
+    rdp_user: "{{ RDP_USER }}"
+    rdp_pass: "{{ RDP_PASS }}"
+  roles:
+    - role: apply

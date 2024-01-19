@@ -1,0 +1,32 @@
+---
+- name: install and configure xfce4
+  shell: |
+    sudo apt-get update
+    sudo DEBIAN_FRONTEND=noninteractive apt-get -y install xfce4
+    sudo apt install xfce4-session
+    echo xfce4-session >~/.xsession
+  register: xfce4
+- debug:
+    msg: "{{ xfce4.stdout }}"
+
+- name: install and configure xrdp
+  shell: |
+    sudo apt-get -y install {{ xrdp_package }}
+    sudo systemctl enable {{ xrdp_package }}
+    sudo systemctl restart {{ xrdp_package }}
+  register: xrdp
+- debug:
+    msg: "{{ xrdp.stdout }}"
+
+- name: install firefox
+  command: sudo snap install firefox
+  register: firefox
+- debug:
+    msg: "{{ firefox.stdout }}"
+
+- name: change user password
+  shell: |
+    echo "{{ rdp_user }}:{{ rdp_pass }}" | sudo chpasswd
+  register: rdp_user
+- debug:
+    msg: "{{ rdp_user.stdout }}"
