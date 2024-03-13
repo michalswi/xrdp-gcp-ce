@@ -7,6 +7,10 @@
 
 GCP Compute Enging (VM) with enabled xrdp. Access to VM from the specific IP only. For simplicty I am using the same user for **ssh** and for **rdp**.
 
+On VM are pre-installed (scroll down for details):
+- **firefox**
+- **caido**
+
 ### \# pre-steps
 ```
 > adjust 'region' in variables.tf
