@@ -38,8 +38,7 @@ ssh -i id_rsa $RDPUSER@<vm_pip>
 ### \# ansible part
 
 ```
-cd ansible/
-- add <vm_pip> >> ./inventory/hosts.ini
+add <vm_pip> >> ./inventory/hosts.ini
 
 ansible-playbook \
 --extra-vars RDP_USER=$RDPUSER \
@@ -58,4 +57,10 @@ After you connect you can **cancel** this:
 
 **Firefox** you can find in `Applications / Internet`:
 
-![fx](./img/firefox.png)
+![fx1](./img/fx1.png)
+![fx2](./img/fx2.png)
+
+**Caido** you can find in `Applications / Development`:
+
+![c1](./img/c1.png)
+![c2](./img/c2.png)

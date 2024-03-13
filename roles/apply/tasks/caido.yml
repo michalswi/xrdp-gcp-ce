@@ -1,0 +1,9 @@
+---
+- name: install caido
+  # https://github.com/caido/caido/releases
+  shell: |
+    wget https://storage.googleapis.com/caido-releases/"{{ caido_version }}"/caido-desktop-"{{ caido_version }}"-linux-x86_64.deb
+    sudo dpkg -i caido-desktop-"{{ caido_version }}"-linux-x86_64.deb
+  register: caido
+- debug:
+    msg: "{{ caido.stdout }}"

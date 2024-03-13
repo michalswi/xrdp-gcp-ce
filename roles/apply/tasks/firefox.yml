@@ -1,0 +1,6 @@
+---
+- name: install firefox
+  command: sudo snap install firefox
+  register: firefox
+- debug:
+    msg: "{{ firefox.stdout }}"
