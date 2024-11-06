@@ -1,7 +1,7 @@
 resource "google_compute_firewall" "allow_ssh" {
   name        = "allow-ssh-fw"
-  project     = var.project
-  network     = google_compute_network.vpc_network.name
+  project     = local.project
+  network     = google_compute_network.this.name
   target_tags = ["allow-ssh"]
   source_ranges = [
     "<your_ip>",
@@ -14,8 +14,8 @@ resource "google_compute_firewall" "allow_ssh" {
 
 resource "google_compute_firewall" "allow_rdp" {
   name        = "allow-rdp-fw"
-  project     = var.project
-  network     = google_compute_network.vpc_network.name
+  project     = local.project
+  network     = google_compute_network.this.name
   target_tags = ["allow-rdp"]
   source_ranges = [
     "<your_ip>",
