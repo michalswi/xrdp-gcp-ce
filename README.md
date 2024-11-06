@@ -5,7 +5,10 @@
 ![](https://img.shields.io/github/stars/michalswi/xrdp-gcp-ce)
 ![](https://img.shields.io/github/last-commit/michalswi/xrdp-gcp-ce)
 
-GCP Compute Enging (VM) with enabled xrdp. Access to VM from the specific IP only. For simplicty I am using the same user for **ssh** and for **rdp**.
+GCP Compute Enging (VM) with enabled xrdp.  
+
+Access to VM from the specific IP only [preferred way].   
+For simplicty I am using the same user for **ssh** and for **rdp**.
 
 On VM are pre-installed (scroll down for details):
 - **firefox**
@@ -15,7 +18,8 @@ On VM are pre-installed (scroll down for details):
 ```
 > adjust 'region' in variables.tf
 > adjust 'machine_type' in main.tf
-> adjust 'source_ranges' in fw_rules.tf (instead of <your_ip> you can use '0.0.0.0' although it's not recommended)
+> adjust 'source_ranges' in fw_rules.tf 
+(instead of <your_ip> you can use '0.0.0.0' although it's not recommended)
 
 ```
 
@@ -24,8 +28,7 @@ On VM are pre-installed (scroll down for details):
 ```
 export GOOGLE_APPLICATION_CREDENTIALS=<service_account_key_name>.json
 
-export RDPUSER=foo
-export RDPPASS=bar
+export RDPUSER=foo && export RDPPASS=bar
 
 terraform init
 terraform plan -var project=<project_name> -var user=$RDPUSER
@@ -51,7 +54,7 @@ setup.yml -i inventory/hosts.ini -vv
 
 sudo nmap -v -Pn -p 22,3389 <vm_pip>
 
-> to connect you can use 'Microsoft Remote Desktop'
+> to connect you can use any RDP app (e.g. Windows App)
 ```
 
 After you connect you can **cancel** this:  
@@ -59,12 +62,7 @@ After you connect you can **cancel** this:
 
 ![auth](./img/auth.png)
 
-**Firefox** you can find in `Applications / Internet`:
+**Firefox** and **Caido** you can find in `Applications / Internet`:
 
-![fx1](./img/fx1.png)
-![fx2](./img/fx2.png)
-
-**Caido** you can find in `Applications / Development`:
-
-![c1](./img/c1.png)
-![c2](./img/c2.png)
+![apps](./img/apps.png)
+![apps](./img/caido.png)

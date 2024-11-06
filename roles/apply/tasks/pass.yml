@@ -2,6 +2,6 @@
 - name: change user password
   shell: |
     echo "{{ rdp_user }}:{{ rdp_pass }}" | sudo chpasswd
-  register: rdp_user
+  register: rdp_user_results
 - debug:
-    msg: "{{ rdp_user.stdout }}"
+    msg: "{{ rdp_user_results.stdout }}"

@@ -3,7 +3,8 @@
   # https://github.com/caido/caido/releases
   shell: |
     wget https://storage.googleapis.com/caido-releases/"{{ caido_version }}"/caido-desktop-"{{ caido_version }}"-linux-x86_64.deb
+    sudo apt install xdg-utils -y
     sudo dpkg -i caido-desktop-"{{ caido_version }}"-linux-x86_64.deb
-  register: caido
+  register: caido_results
 - debug:
-    msg: "{{ caido.stdout }}"
+    msg: "{{ caido_results.stdout }}"

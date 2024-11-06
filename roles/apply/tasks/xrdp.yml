@@ -5,15 +5,15 @@
     sudo DEBIAN_FRONTEND=noninteractive apt-get -y install xfce4
     sudo apt install xfce4-session
     echo xfce4-session >~/.xsession
-  register: xfce4
+  register: xfce4_results
 - debug:
-    msg: "{{ xfce4.stdout }}"
+    msg: "{{ xfce4_results.stdout }}"
 
 - name: install and configure xrdp
   shell: |
     sudo apt-get -y install {{ xrdp_package }}
     sudo systemctl enable {{ xrdp_package }}
     sudo systemctl restart {{ xrdp_package }}
-  register: xrdp
+  register: xrdp_results
 - debug:
-    msg: "{{ xrdp.stdout }}"
+    msg: "{{ xrdp_results.stdout }}"

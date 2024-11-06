@@ -1,4 +1,5 @@
 .DS*
 .terraform*
 terraform*
-./id_rsa*
+id_*
+.vs*

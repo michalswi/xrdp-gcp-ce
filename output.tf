@@ -1,14 +1,15 @@
 output "vm_pip" {
-  value       = google_compute_address.static_ip.address
   description = "The public IP address of the virtual machine."
+  value       = google_compute_address.this.address
 }
 
 output "user" {
-  value       = var.user
   description = "The username used for the virtual machine."
+  value       = local.user
 }
 
 output "ssh" {
-  value       = join("", ["ssh -i ", local_file.ssh_private_key.filename, " ", var.user, "@", google_compute_address.static_ip.address, " -vv"])
   description = "The SSH command to connect to the virtual machine."
+  value       = join("", ["ssh -i ", local_file.ssh_private_key.filename, " ", local.user, "@", google_compute_address.this.address, ""])
+  # value       = join("", ["ssh -i ", local_file.ssh_private_key.filename, " ", local.user, "@", google_compute_address.this.address, " -vv"])
 }
