@@ -28,13 +28,16 @@ On VM are pre-installed (scroll down for details):
 ```
 export GOOGLE_APPLICATION_CREDENTIALS=<service_account_key_name>.json
 
-export RDPUSER=foo && export RDPPASS=bar
+export RDPUSER=foo &&\
+export RDPPASS=bar
+
+export GCP_PROJECT=<project_name>
 
 terraform init
-terraform plan -var project=<project_name> -var user=$RDPUSER
-terraform apply -var project=<project_name> -var user=$RDPUSER -auto-approve
+terraform plan -var project=$GCP_PROJECT -var user=$RDPUSER
+terraform apply -var project=$GCP_PROJECT -var user=$RDPUSER -auto-approve
 
-terraform destroy -var project=<project_name> -var user=$RDPUSER -auto-approve
+terraform destroy -var project=$GCP_PROJECT -var user=$RDPUSER -auto-approve
 ./clear.sh
 
 <vm_pip> is visible in tf output
