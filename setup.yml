@@ -5,6 +5,6 @@
   vars:
     rdp_user: "{{ RDP_USER }}"
     rdp_pass: "{{ RDP_PASS }}"
-    caido_version: "v0.43.1"
+    caido_version: "v0.51.1"
   roles:
     - role: apply
